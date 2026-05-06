@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── PAGE BACKGROUNDS ── */
+.page-home {
+  background: linear-gradient(145deg, #d4f5d4 0%, #a8e6a8 30%, #6dcf6d 65%, #3ab83a 100%);
+  min-height: 100vh;
+}
+.page-crop {
+  background: linear-gradient(145deg, #d4f5d4 0%, #a8e6a8 30%, #6dcf6d 65%, #3ab83a 100%);
+  min-height: 100vh;
+}
+.page-disease {
+  background: linear-gradient(145deg, #fff0e0 0%, #ffd4a8 30%, #ffb570 65%, #e06820 100%);
+  min-height: 100vh;
+}
+.page-weather {
+  background: linear-gradient(145deg, #e0f4ff 0%, #b0e0ff 30%, #70c4ff 65%, #1a90e8 100%);
+  min-height: 100vh;
+}
+.page-irrigation {
+  background: linear-gradient(145deg, #ede9fe 0%, #c4b5fd 30%, #a78bfa 65%, #6d28d9 100%);
+  min-height: 100vh;
+}
+
+/* ── GLASS CARD ── */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,1);
+}
+
+/* ── INPUTS ── */
+.farm-input {
+  width: 100%;
+  padding: 8px 11px;
+  border-radius: 9px;
+  font-size: 13px;
+  background: rgba(255,255,255,0.75);
+  border: 1.5px solid rgba(0,0,0,0.08);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.farm-input-crop  { color: #14532d; }
+.farm-input-crop:focus  { border-color: #22c55e; }
+.farm-input-disease { color: #7c2d12; }
+.farm-input-disease:focus { border-color: #f97316; }
+.farm-input-weather { color: #0c4a6e; }
+.farm-input-weather:focus { border-color: #38bdf8; }
+.farm-input-irrigation { color: #3b0764; }
+.farm-input-irrigation:focus { border-color: #8b5cf6; }
+
+/* ── BUTTONS ── */
+.farm-btn {
+  width: 100%;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 11px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all 0.18s;
+  letter-spacing: 0.2px;
+}
+.farm-btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+.farm-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; filter: none; }
+.farm-btn-crop       { background: linear-gradient(135deg,#22c55e,#15803d); box-shadow: 0 4px 14px rgba(34,197,94,0.32); }
+.farm-btn-disease    { background: linear-gradient(135deg,#f97316,#c2410c); box-shadow: 0 4px 14px rgba(249,115,22,0.32); }
+.farm-btn-weather    { background: linear-gradient(135deg,#38bdf8,#0284c7); box-shadow: 0 4px 14px rgba(56,189,248,0.32); }
+.farm-btn-irrigation { background: linear-gradient(135deg,#8b5cf6,#6d28d9); box-shadow: 0 4px 14px rgba(139,92,246,0.32); }
+
+/* ── SLIDERS ── */
+input[type=range] { width: 100%; height: 4px; border-radius: 2px; cursor: pointer; }
+input[type=range].slider-crop       { accent-color: #22c55e; }
+input[type=range].slider-weather    { accent-color: #38bdf8; }
+input[type=range].slider-irrigation { accent-color: #8b5cf6; }
+
+/* ── RESULT BOXES ── */
+.result-crop {
+  background: rgba(34,197,94,0.12);
+  border: 1.5px solid rgba(34,197,94,0.3);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.result-disease {
+  background: rgba(249,115,22,0.1);
+  border: 1.5px solid rgba(249,115,22,0.25);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* ── UPLOAD ZONE ── */
+.upload-zone {
+  border: 2px dashed rgba(249,115,22,0.35);
+  border-radius: 12px;
+  padding: 22px 16px;
+  text-align: center;
+  background: rgba(255,255,255,0.45);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.upload-zone:hover {
+  background: rgba(255,255,255,0.6);
+  border-color: rgba(249,115,22,0.55);
+}
+.upload-zone-active {
+  border-color: #f97316;
+  background: rgba(249,115,22,0.08);
+}
+
+/* ── WEATHER BOX ── */
+.weather-box {
+  background: rgba(255,255,255,0.6);
+  border: 1.5px solid rgba(56,189,248,0.3);
+  border-radius: 13px;
+  padding: 13px;
+}
+
+/* ── IRRIGATION STAT ── */
+.irr-stat {
+  background: rgba(139,92,246,0.1);
+  border: 1.5px solid rgba(139,92,246,0.2);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* ── TIPS BOX ── */
+.tip-box {
+  background: rgba(251,191,36,0.12);
+  border: 1.5px solid rgba(251,191,36,0.3);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* ── CONF BAR ── */
+.conf-track {
+  background: rgba(34,197,94,0.15);
+  border-radius: 3px;
+  height: 5px;
+  margin-top: 7px;
+  overflow: hidden;
+}
+.conf-fill {
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #4ade80, #16a34a);
+}
+
+/* ── TOP3 ROWS ── */
+.top3-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(249,115,22,0.12);
+  font-size: 11px;
+}
+.top3-row:last-child { border: none; }

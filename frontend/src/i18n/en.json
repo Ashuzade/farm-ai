@@ -1,0 +1,90 @@
+{
+  "app_name": "FarmAI",
+  "tagline": "Smart Farming Intelligence",
+  "nav": {
+    "home": "Home",
+    "crop": "Crop Advisor",
+    "disease": "Disease Detector",
+    "weather": "Weather",
+    "irrigation": "Irrigation"
+  },
+  "crop": {
+    "title": "Crop Recommendation",
+    "subtitle": "Enter your soil and weather details to get the best crop suggestion",
+    "nitrogen": "Nitrogen (N)",
+    "phosphorus": "Phosphorus (P)",
+    "potassium": "Potassium (K)",
+    "temperature": "Temperature (°C)",
+    "humidity": "Humidity (%)",
+    "ph": "Soil pH",
+    "rainfall": "Rainfall (mm)",
+    "predict": "Get Recommendation",
+    "result": "Recommended Crop",
+    "confidence": "Confidence",
+    "loading": "Analyzing soil data..."
+  },
+  "disease": {
+    "title": "Disease Detection",
+    "subtitle": "Upload a leaf image to detect plant diseases instantly",
+    "upload": "Drop a leaf image here or click to upload",
+    "formats": "Supports JPG, PNG, WEBP up to 5MB",
+    "predict": "Detect Disease",
+    "result": "Detected Disease",
+    "confidence": "Confidence",
+    "top3": "Top Predictions",
+    "loading": "Analyzing leaf image..."
+  },
+  "weather": {
+    "title": "Weather Intelligence",
+    "subtitle": "Real-time weather data with farming recommendations",
+    "search_placeholder": "Enter city name e.g. Nagpur...",
+    "search_btn": "Search",
+    "popular": "Popular Cities",
+    "humidity": "Humidity",
+    "rainfall": "Rainfall",
+    "wind": "Wind",
+    "pressure": "Pressure",
+    "feels": "Feels like",
+    "recommendations": "Farming Recommendations",
+    "autofill_title": "Use this weather for Crop Recommendation",
+    "autofill_desc": "Go to Crop Advisor and enter the city in the weather widget to auto-fill",
+    "empty_title": "Search for any city",
+    "empty_sub": "or use GPS to get live weather & farming tips",
+    "loading": "Fetching weather..."
+  },
+  "irrigation": {
+    "title": "Irrigation Planner",
+    "subtitle": "AI-powered water requirement based on FAO standards",
+    "crop_label": "Crop Type",
+    "soil_label": "Soil Type",
+    "stage_label": "Growth Stage",
+    "weather_label": "Weather Conditions",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "rainfall": "Rainfall",
+    "wind": "Wind Speed",
+    "sunshine": "Sunshine",
+    "predict": "Generate Irrigation Plan",
+    "loading": "Calculating water needs...",
+    "daily_need": "Daily Water Requirement",
+    "net_irr": "Net Irrigation",
+    "frequency": "Frequency",
+    "weekly": "Weekly Total",
+    "daily_time": "Daily Time",
+    "schedule": "Weekly Irrigation Schedule",
+    "tips_title": "Water Saving Tips",
+    "tips": [
+      "Water early morning to reduce evaporation loss",
+      "Use drip irrigation for 30–50% water savings",
+      "Check soil moisture before each irrigation cycle",
+      "Maintain a consistent watering schedule for best yield"
+    ],
+    "empty_title": "Select crop, soil & growth stage",
+    "empty_sub": "then click Generate Irrigation Plan"
+  },
+  "errors": {
+    "prediction_failed": "Prediction failed. Please try again.",
+    "upload_failed": "Image upload failed.",
+    "server_error": "Server error. Make sure backend is running."
+  }
+}
