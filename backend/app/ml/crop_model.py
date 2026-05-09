@@ -35,20 +35,22 @@ class CropModel:
         if not self.is_loaded:
             raise RuntimeError("Model is not loaded. Call load() first.")
 
-        # Scale input features
-        features_array = np.array(features).reshape(1, -1)
-        features_scaled = self.scaler.transform(features_array)
+        import pandas as pd
 
-        # Predict crop
-        prediction = self.model.predict(features_scaled)
+    # Use DataFrame to match scaler's expected feature names
+        feature_names = ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']
+        features_df     = pd.DataFrame([features], columns=feature_names)
+        features_scaled = self.scaler.transform(features_df)
+
+        prediction    = self.model.predict(features_scaled)
         probabilities = self.model.predict_proba(features_scaled)
 
         crop_name  = self.label_encoder.inverse_transform(prediction)[0]
         confidence = round(float(probabilities.max()), 4)
 
         return {
-            "crop": crop_name,
-            "confidence": confidence
+           "crop":       crop_name,
+           "confidence": confidence
         }
 
 # Single instance — loaded once when server starts
