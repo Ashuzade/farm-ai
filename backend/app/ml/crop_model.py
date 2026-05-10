@@ -25,10 +25,10 @@ class CropModel:
             self.label_encoder = model_data["label_encoder"]
             self.is_loaded     = True
 
-            print(f"✅ Crop model loaded successfully from {model_path}")
+            print(f"Crop model loaded successfully from {model_path}")
 
         except Exception as e:
-            print(f"❌ Failed to load crop model: {e}")
+            print(f" Failed to load crop model: {e}")
             self.is_loaded = False
 
     def predict(self, features: list) -> dict:

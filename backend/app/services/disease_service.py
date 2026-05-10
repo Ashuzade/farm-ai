@@ -15,11 +15,11 @@ def predict_disease(
     db: Session
 ) -> DiseaseResponse:
 
-    print(f"📸 Received file: {filename}, size: {len(image_bytes)} bytes")
+    print(f" Received file: {filename}, size: {len(image_bytes)} bytes")
 
     # Validate image
     is_valid, message = validate_image(filename, len(image_bytes))
-    print(f"✅ Validation result: {is_valid}, message: {message}")
+    print(f" Validation result: {is_valid}, message: {message}")
 
     if not is_valid:
         raise ValueError(message)
@@ -34,7 +34,7 @@ def predict_disease(
     with open(save_path, 'wb') as f:
         f.write(image_bytes)
 
-    print(f"💾 Image saved to: {save_path}")
+    print(f" Image saved to: {save_path}")
 
     # Preprocess and predict
     img_array = preprocess_image(image_bytes)

@@ -39,11 +39,11 @@ class IrrigationModel:
             self.crop_water_base = data['crop_water_base']
             self.is_loaded       = True
 
-            print(f"✅ Irrigation model loaded from {model_path}")
-            print(f"✅ Supports {len(self.crops)} crops, {len(self.soils)} soil types")
+            print(f" Irrigation model loaded from {model_path}")
+            print(f" Supports {len(self.crops)} crops, {len(self.soils)} soil types")
 
         except Exception as e:
-            print(f"❌ Failed to load irrigation model: {e}")
+            print(f" Failed to load irrigation model: {e}")
             self.is_loaded = False
 
     def predict(self, crop: str, soil_type: str, growth_stage: str,

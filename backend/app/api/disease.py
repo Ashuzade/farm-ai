@@ -12,7 +12,7 @@ async def disease_predict(
     db: Session = Depends(get_db)
 ):
     try:
-        print(f"📥 Upload received: {file.filename}, content_type: {file.content_type}")
+        print(f" Upload received: {file.filename}, content_type: {file.content_type}")
 
         # Read image bytes
         image_bytes = await file.read()
@@ -28,10 +28,10 @@ async def disease_predict(
         return result
 
     except ValueError as e:
-        print(f"❌ Validation error: {str(e)}")
+        print(f" Validation error: {str(e)}")
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        print(f"❌ Server error: {str(e)}")
+        print(f" Server error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/classes", tags=["Disease Detection"])

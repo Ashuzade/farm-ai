@@ -26,7 +26,7 @@ def validate_image(filename: str, file_size: int) -> tuple:
 
     return True, "ok"
 
-def preprocess_image(image_bytes: bytes, target_size=(224, 224)) -> np.ndarray:
+def preprocess_image(image_bytes: bytes, target_size=(128, 128)) -> np.ndarray:
     """Convert raw image bytes to numpy array ready for model inference."""
     try:
         img = Image.open(io.BytesIO(image_bytes))
