@@ -56,7 +56,7 @@ const stats = [
   { value: '3',   label: 'Languages',          icon: '🌍' },
 ];
 
-export default function Dashboard({ t }) {
+export default function Dashboard({ t, user }) {
   const [status, setStatus] = useState('checking');
 
   useEffect(() => {
@@ -89,6 +89,39 @@ export default function Dashboard({ t }) {
         <p style={{ color: '#4a8a4a', fontSize: 15, margin: '0 0 20px' }}>
           {t.tagline}
         </p>
+
+        {/* Welcome message */}
+{user && (
+  <div style={{
+    display: 'inline-flex', alignItems: 'center', gap: 10,
+    padding: '8px 20px', borderRadius: 24, marginBottom: 12,
+    background: 'rgba(255,255,255,0.7)',
+    border: '1.5px solid rgba(34,197,94,0.25)',
+    backdropFilter: 'blur(8px)',
+    boxShadow: '0 2px 12px rgba(34,197,94,0.1)',
+  }}>
+    <div style={{
+      width: 30, height: 30, borderRadius: '50%',
+      background: 'linear-gradient(135deg,#22c55e,#15803d)',
+      display: 'flex', alignItems: 'center',
+      justifyContent: 'center',
+      color: '#fff', fontSize: 14, fontWeight: 800,
+    }}>
+      {user.name.charAt(0).toUpperCase()}
+    </div>
+    <div style={{ textAlign: 'left' }}>
+      <div style={{ color: '#14532d', fontSize: 13, fontWeight: 700 }}>
+        Welcome back, {user.name.split(' ')[0]}! 👋
+      </div>
+      <div style={{
+        color: '#16a34a', fontSize: 10,
+        textTransform: 'uppercase', letterSpacing: 0.5,
+      }}>
+        {user.role === 'agronomist' ? '🔬 Agronomist' : '👨‍🌾 Farmer'}
+      </div>
+    </div>
+  </div>
+)}
 
         {/* Server status */}
         <div style={{

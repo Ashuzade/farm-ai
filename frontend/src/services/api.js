@@ -1,15 +1,23 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_URL || 'https://farmai-backend-9nqg.onrender.com';
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: BASE_URL,
   timeout: 30000,
+  headers: {
+    'ngrok-skip-browser-warning': 'true',  // fixes ngrok warning
+    'Content-Type': 'application/json',
+  }
 });
 
-// Request interceptor — logs every request
+// Request interceptor 
 api.interceptors.request.use(
   (config) => {
+    const token = localStorage.getItem('farmai_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     console.log(`API Request: ${config.method.toUpperCase()} ${config.url}`);
     return config;
   },
@@ -44,7 +52,10 @@ export const predictDisease = (imageFile) => {
   const formData = new FormData();
   formData.append('file', imageFile);
   return api.post('/disease/predict', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'ngrok-skip-browser-warning': 'true', 
+    },
   });
 };
 
@@ -70,5 +81,18 @@ export const getIrrigationOptions = () =>
 
 export const getCropWaterBase = () =>
   api.get('/irrigation/crop-water-base');
+
+// --- Auth API ---
+export const registerUser = (data) =>
+  api.post('/auth/register', data);
+
+export const loginUser = (data) =>
+  api.post('/auth/login', data);
+
+export const getMe = () =>
+  api.get('/auth/me');
+
+export const logoutUser = () =>
+  api.post('/auth/logout');
 
 export default api;

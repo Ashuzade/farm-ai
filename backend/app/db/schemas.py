@@ -88,3 +88,28 @@ class IrrigationOptionsResponse(BaseModel):
     crops:   list
     soils:   list
     stages:  list
+
+# --- Auth Schemas ---
+class UserRegister(BaseModel):
+    name:     str
+    email:    str
+    password: str
+    role:     str = "farmer"
+
+class UserLogin(BaseModel):
+    email:    str
+    password: str
+
+class UserResponse(BaseModel):
+    id:    int
+    name:  str
+    email: str
+    role:  str
+
+    class Config:
+        from_attributes = True
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type:   str
+    user:         UserResponse
