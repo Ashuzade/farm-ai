@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-
+const BASE_URL = process.env.REACT_APP_API_URL 
+  || 'https://farmai-backend-9nqg.onrender.com';
+  
 const api = axios.create({
   baseURL: BASE_URL,
   timeout: 30000,
