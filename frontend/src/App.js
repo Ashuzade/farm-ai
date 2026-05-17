@@ -129,7 +129,7 @@ function AppContent({ t, lang, setLang, user, setUser }) {
           pageClass === 'page-irrigation' ? '#3b0764' :
           '#14532d',
       }}>
-        🌾 FarmAI — Smart Farming Intelligence · Built with FastAPI + React
+        🌾 FarmAI — Smart Farming Intelligence
       </footer>
     </>
   );

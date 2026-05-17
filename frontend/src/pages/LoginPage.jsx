@@ -152,7 +152,7 @@ export default function LoginPage({ onLogin }) {
                     background: 'none', border: 'none',
                     cursor: 'pointer', fontSize: 16, color: '#4a8a4a',
                   }}
-                >{showPass ? '︶' : '👁️'}</button>
+                >{showPass ?'👁️' : '︶' }</button>
               </div>
             </div>
 
