@@ -11,9 +11,9 @@ def register_user(data: UserRegister, db: Session) -> TokenResponse:
         raise HTTPException(status_code=400, detail="Email already registered")
 
     # Validate role
-    if data.role not in ["farmer", "agronomist"]:
-        raise HTTPException(status_code=400, detail="Role must be farmer or agronomist")
-
+    if data.role not in ["farmer", "agronomist", "admin"]:
+        raise HTTPException(status_code=400, detail="Role must be farmer, agronomist or admin")
+    
     # Hash password and save user
     user = User(
         name     = data.name,
