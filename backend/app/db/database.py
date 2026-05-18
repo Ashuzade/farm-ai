@@ -5,14 +5,16 @@ from backend.app.config.settings import settings
 
 engine = create_engine(
     settings.DATABASE_URL,
-    connect_args={"check_same_thread": False}  # needed for SQLite only
+    connect_args={
+        "check_same_thread": False,
+        "timeout": 30           # wait 30 seconds before giving up on locked db
+    }
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
-# Dependency — used in FastAPI routes to get a DB session
 def get_db():
     db = SessionLocal()
     try:
