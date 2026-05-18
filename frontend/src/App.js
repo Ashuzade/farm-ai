@@ -51,12 +51,13 @@ function AppContent({ t, lang, setLang, user, setUser }) {
             user
               ? <Navigate to="/" replace />
               : <LoginPage
+                  // In LoginPage onLogin callback — make sure this is what you have:
                   onLogin={(u) => {
                     if (u === 'goto-register') {
                       window.location.href = '/register';
                     } else {
-                      setUser(u);
-                    }
+                      setUser(u);  
+                   }
                   }}
                 />
           }
