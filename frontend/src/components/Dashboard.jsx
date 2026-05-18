@@ -113,11 +113,17 @@ export default function Dashboard({ t, user }) {
       <div style={{ color: '#14532d', fontSize: 13, fontWeight: 700 }}>
         Welcome back, {user.name.split(' ')[0]}! 👋
       </div>
-      <div style={{
-        color: '#16a34a', fontSize: 10,
+       <div style={{
+        fontSize: 10, fontWeight: 800,
         textTransform: 'uppercase', letterSpacing: 0.5,
+        color:
+          user.role === 'admin'      ? '#dc2626' :
+          user.role === 'agronomist' ? '#1d4ed8' :
+          '#16a34a',
       }}>
-        {user.role === 'agronomist' ? '🔬 Agronomist' : '👨‍🌾 Farmer'}
+        {user.role === 'admin'      ? '⚙️ Admin'      :
+         user.role === 'agronomist' ? '🔬 Agronomist' :
+         '👨‍🌾 Farmer'}
       </div>
     </div>
   </div>
