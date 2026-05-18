@@ -16,12 +16,13 @@ export default function Navbar({ lang, setLang, t, user, onLogout }) {
   const [profileOpen, setProfileOpen] = useState(false);
 
   const navLinks = [
-    { path: '/',           icon: '🏠', label: t.nav.home       },
-    { path: '/crop',       icon: '🌱', label: t.nav.crop       },
-    { path: '/disease',    icon: '🍃', label: t.nav.disease    },
-    { path: '/weather',    icon: '🌤️', label: t.nav.weather    },
-    { path: '/irrigation', icon: '💧', label: t.nav.irrigation },
-  ];
+  { path: '/',           icon: '🏠', label: t.nav.home       },
+  { path: '/crop',       icon: '🌱', label: t.nav.crop       },
+  { path: '/disease',    icon: '🍃', label: t.nav.disease    },
+  { path: '/weather',    icon: '🌤️', label: t.nav.weather    },
+  { path: '/irrigation', icon: '💧', label: t.nav.irrigation },
+  ...(user?.role === 'admin' ? [{ path: '/admin', icon: '⚙️', label: 'Admin' }] : []),
+];
 
   const handleLogout = async () => {
     try {

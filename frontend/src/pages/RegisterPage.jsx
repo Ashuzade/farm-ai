@@ -4,8 +4,9 @@ import { saveAuth } from '../services/auth';
 import toast from 'react-hot-toast';
 
 const roles = [
-  { value: 'farmer',     icon: '👨‍🌾', label: 'Farmer',     desc: 'I grow crops and need farming advice' },
-  { value: 'agronomist', icon: '🔬', label: 'Agronomist', desc: 'I provide expert agricultural guidance' },
+  { value: 'farmer',     icon: '👨‍🌾', label: 'Farmer',     desc: 'I grow crops and need farming advice'  },
+  { value: 'agronomist', icon: '🔬', label: 'Agronomist', desc: 'I provide expert agricultural guidance'  },
+  { value: 'admin',      icon: '⚙️', label: 'Admin',      desc: 'System administrator and data monitor'   },
 ];
 
 export default function RegisterPage({ onRegister, onBackToLogin }) {
