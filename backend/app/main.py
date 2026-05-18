@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.config.settings import settings
 from backend.app.db.database import Base, engine
+
+# ── Import ALL models first so tables get created ──
+from backend.app.db import models  # noqa — this ensures all models are registered
+
 from backend.app.api.crop       import router as crop_router
 from backend.app.api.disease    import router as disease_router
 from backend.app.api.weather    import router as weather_router
@@ -11,7 +15,7 @@ from backend.app.ml.crop_model       import crop_model
 from backend.app.ml.disease_model    import disease_model
 from backend.app.ml.irrigation_model import irrigation_model
 
-# Create all DB tables on startup
+# ── Create ALL tables ──
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -22,7 +26,6 @@ app = FastAPI(
     redoc_url   = "/redoc"
 )
 
-# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins     = ["*"],
